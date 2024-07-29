@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Mapbox GL JS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox GL JS Globe</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <style>
         body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; height: 100%; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     </style>
 </head>
 <body>
 <div id="map"></div>
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYnJheWFucjY0IiwiYSI6ImNseXF5dTBlMzAxYzAyanF2Zzl0cm1lOG0ifQ.Yt51xQQj4S2VqYQulYb3UA'; // Remplacez par votre token d'accès
-    var map = new mapboxgl.Map({
-        container: 'map', // ID du conteneur
-        style: 'mapbox://styles/brayanr64/clyx15ufj009z01r0gvu3hoxg', // Remplacez par votre URL de style
-        center: [-74.5, 40], // Position initiale [lng, lat]
-        zoom: 9 // Zoom initial
+    // Remplacez par votre propre jeton d'accès
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYnJheWFucjY0IiwiYSI6ImNseXF5dTBlMzAxYzAyanF2Zzl0cm1lOG0ifQ.Yt51xQQj4S2VqYQulYb3UA';
+
+    // Initialisation de la carte avec la projection 'globe' et les limites de zoom
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/brayanr64/clz5oi8qw00pj01pcg1m3gb1o',
+        center: [0, 0],
+        zoom: 1,
+        minZoom: 2,  // Limite de zoom minimale
+        maxZoom: 8,  // Limite de zoom maximale
+        projection: 'globe' // Utilisation de la projection 'globe'
     });
 
-    // Ajout des contrôles de zoom et de rotation à la carte
+    // Ajout des contrôles de navigation (zoom et rotation)
     map.addControl(new mapboxgl.NavigationControl());
+
+    // Configuration du style pour activer la projection globe
+    map.on('style.load', () => {
+        map.setFog({
+            'range': [2, 8],
+            'horizon-blend': 0.03,
+            'color': 'white',
+            'high-color': '#add8e6',
+            'space-color': '#000000',
+            'star-intensity': 0.1
+        });
+    });
 </script>
 </body>
 </html>
