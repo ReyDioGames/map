@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +8,52 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <style>
-        body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
+
 <body>
-<div id="map"></div>
-<script>
-    // Remplacez par votre propre jeton d'accès
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYnJheWFucjY0IiwiYSI6ImNseXF5dTBlMzAxYzAyanF2Zzl0cm1lOG0ifQ.Yt51xQQj4S2VqYQulYb3UA';
+    <div id="map"></div>
+    <script>
+        // Remplacez par votre propre jeton d'accï¿½s
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYnJheWFucjY0IiwiYSI6ImNseXF5dTBlMzAxYzAyanF2Zzl0cm1lOG0ifQ.Yt51xQQj4S2VqYQulYb3UA';
 
-    // Initialisation de la carte avec la projection 'globe' et les limites de zoom
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/brayanr64/clz5oi8qw00pj01pcg1m3gb1o',
-        center: [0, 0],
-        zoom: 1,
-        minZoom: 2,  // Limite de zoom minimale
-        maxZoom: 8,  // Limite de zoom maximale
-        projection: 'globe' // Utilisation de la projection 'globe'
-    });
-
-    // Ajout des contrôles de navigation (zoom et rotation)
-    map.addControl(new mapboxgl.NavigationControl());
-
-    // Configuration du style pour activer la projection globe
-    map.on('style.load', () => {
-        map.setFog({
-            'range': [2, 8],
-            'horizon-blend': 0.03,
-            'color': 'white',
-            'high-color': '#add8e6',
-            'space-color': '#000000',
-            'star-intensity': 0.1
+        // Initialisation de la carte avec la projection 'globe' et les limites de zoom
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/brayanr64/clz5oi8qw00pj01pcg1m3gb1o',
+            center: [6, 45],
+            zoom: 2,
+            minZoom: 1,  // Limite de zoom minimale
+            maxZoom: 8,  // Limite de zoom maximale
+            projection: 'globe' // Utilisation de la projection 'globe'
         });
-    });
-</script>
+
+        // Ajout des contrï¿½les de navigation (zoom et rotation)
+        map.addControl(new mapboxgl.NavigationControl());
+
+        // Configuration du style pour activer la projection globe
+        map.on('style.load', () => {
+            map.setFog({
+                'range': [2, 8],
+                'horizon-blend': 0.03,
+                'color': 'white',
+                'high-color': '#add8e6',
+                'space-color': '#000000',
+                'star-intensity': 0.1
+            });
+        });
+    </script>
 </body>
+
 </html>
