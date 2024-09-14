@@ -4,56 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapbox GL JS Globe</title>
+    <title>Map with City Name and Timezone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
 </head>
 
 <body>
-    <div id="map"></div>
-    <script>
-        // Remplacez par votre propre jeton d'acc�s
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYnJheWFucjY0IiwiYSI6ImNseXF5dTBlMzAxYzAyanF2Zzl0cm1lOG0ifQ.Yt51xQQj4S2VqYQulYb3UA';
+    <!-- Header with burger button, city name, and timezone -->
+    <header>
+        <button class="menu-button" id="burger-btn">&#9776;</button>
+        <div class="location-info">
+            <div class="city-name" id="city-name">Loading...</div>
 
-        // Initialisation de la carte avec la projection 'globe' et les limites de zoom
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/brayanr64/clz5oi8qw00pj01pcg1m3gb1o',
-            center: [6, 45],
-            zoom: 2,
-            minZoom: 1,  // Limite de zoom minimale
-            maxZoom: 8,  // Limite de zoom maximale
-            projection: 'globe' // Utilisation de la projection 'globe'
-        });
+        </div>
+    </header>
 
-        // Ajout des contr�les de navigation (zoom et rotation)
-        map.addControl(new mapboxgl.NavigationControl());
+    <!-- Burger Menu -->
+    <div class="menu" id="burger-menu">
+        <ul>
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+        </ul>
+    </div>
 
-        // Configuration du style pour activer la projection globe
-        map.on('style.load', () => {
-            map.setFog({
-                'range': [2, 8],
-                'horizon-blend': 0.03,
-                'color': 'white',
-                'high-color': '#add8e6',
-                'space-color': '#000000',
-                'star-intensity': 0.1
-            });
-        });
-    </script>
+    <!-- Map -->
+    <div id="map">
+        <!-- Inclusion du script Mapbox AVANT votre fichier JavaScript -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+        <script src="script.js"></script> <!-- Lien vers votre fichier JS -->
+
+    </div>
+
+
 </body>
 
 </html>

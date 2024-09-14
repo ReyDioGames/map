@@ -1,0 +1,95 @@
+/* Style de base pour le corps */
+body {
+    margin: 0;
+    font-family: 'Faustina', serif;
+    overflow: hidden;
+    /* Empêche les barres de défilement */
+}
+
+/* Style du header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    /* Reste en haut même lors du défilement */
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* Style du bouton burger */
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Conteneur pour le nom de la ville et le fuseau horaire */
+.location-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Style du nom de la ville */
+.city-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style du fuseau horaire */
+.timezone {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Style du menu burger */
+.menu {
+    display: none;
+    /* Caché par défaut */
+    background-color: #444;
+    position: absolute;
+    top: 50px;
+    /* Juste en dessous du header */
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    /* Au-dessus de la carte */
+}
+
+/* Style de la liste dans le menu burger */
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    background-color: #555;
+    margin-bottom: 5px;
+}
+
+.menu ul li:hover {
+    background-color: #666;
+}
+
+/* Style de la carte */
+#map {
+    position: absolute;
+    top: 50px;
+    /* Laisser de la place pour le header */
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
